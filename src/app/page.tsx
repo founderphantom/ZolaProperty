@@ -184,15 +184,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section bg-white pt-0">
+      <section className="bg-white pt-0 pb-8">
         <div className="container-x">
           <h2 className="text-center font-display text-2xl font-extrabold sm:text-3xl">
             HOW WE <span className="text-gold">GET YOUR PROPERTY RENTED</span>
           </h2>
-          <div className="mt-8 flex justify-center">
-            <div className="relative mx-auto h-64 w-full max-w-xl overflow-hidden sm:h-72">
-              <Image fill src="/images/process-icons.jpg" alt="Our 3-step process: Market, Show, Place AAA Tenants" className="object-cover object-top" sizes="(min-width: 640px) 576px, 100vw" />
-            </div>
+          <div className="mt-8 mx-auto max-w-xl">
+            <Image src="/images/process-icons.jpg" alt="Our 3-step process: Market, Show, Place AAA Tenants" width={1536} height={1024} className="w-full h-auto" sizes="(min-width: 640px) 576px, 100vw" />
           </div>
           <div className="mt-6 grid gap-10 md:grid-cols-3">
             <div className="text-center">
@@ -217,13 +215,14 @@ export default function HomePage() {
       </section>
 
       <section className="bg-white py-0">
-        <div className="container-x">
+        <div className="container-x overflow-hidden">
           <Image
             src="/images/property-types.jpg"
             alt="We rent all property types: Condos, Basement Apartments, Detached Homes, Semi-Detached Homes, Townhouses, Multi-Unit Properties"
             width={1536}
             height={1024}
             className="w-full h-auto"
+            style={{ marginTop: '-5%', marginBottom: '-8%' }}
             sizes="(min-width: 1280px) 1280px, 100vw"
           />
         </div>
