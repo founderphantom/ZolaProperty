@@ -8,14 +8,18 @@ import {
   Building2,
   Calendar,
   CheckCircle2,
+  ClipboardCheck,
   Clock,
   DollarSign,
+  Fingerprint,
   MapPin,
   MessageSquare,
   Phone,
+  Search,
   Shield,
   ShieldCheck,
   Star,
+  Users,
   XCircle,
 } from "lucide-react";
 import { StrategyCallForm } from "@/components/forms/StrategyCallForm";
@@ -212,13 +216,15 @@ export default function HomePage() {
 
       <section className="section bg-white pt-0">
         <div className="container-x">
-          <Image
-            src="/images/property-types.jpg"
-            alt="We rent all property types: Condos, Basement Apartments, Detached Homes, Semi-Detached Homes, Townhouses, Multi-Unit Properties"
-            width={1400}
-            height={520}
-            className="h-auto w-full rounded-xl object-contain"
-          />
+          <div className="relative h-72 w-full overflow-hidden rounded-xl sm:h-80 lg:h-96">
+            <Image
+              fill
+              src="/images/property-types.jpg"
+              alt="We rent all property types: Condos, Basement Apartments, Detached Homes, Semi-Detached Homes, Townhouses, Multi-Unit Properties"
+              className="object-cover object-bottom"
+              sizes="(min-width: 1280px) 1280px, 100vw"
+            />
+          </div>
         </div>
       </section>
 
@@ -297,7 +303,10 @@ export default function HomePage() {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4 text-xs sm:grid-cols-4">
-            <Image src="/images/guarantee-icons.jpg" alt="Rigorous 7-Point Screening, Thorough Background & Credit Checks, Fraud Detection & Document Verification, We Find Tenants That Stay" width={700} height={120} className="col-span-2 h-24 w-full object-contain sm:col-span-4" />
+            <Guarantee icon={<Search className="h-4 w-4 text-gold" />} title="Rigorous 7-Point Screening Process" />
+            <Guarantee icon={<ClipboardCheck className="h-4 w-4 text-gold" />} title="Thorough Background &amp; Credit Checks" />
+            <Guarantee icon={<Fingerprint className="h-4 w-4 text-gold" />} title="Fraud Detection &amp; Document Verification" badge="NEW" />
+            <Guarantee icon={<Users className="h-4 w-4 text-gold" />} title="We Find Tenants That Stay" />
           </div>
         </div>
       </section>
@@ -387,6 +396,16 @@ function Stat({ icon, top, label }: { icon: React.ReactNode; top: string; label:
         <span className="block text-xl font-extrabold text-white">{top}</span>
         <span className="block text-xs text-white/60">{label}</span>
       </span>
+    </div>
+  );
+}
+
+function Guarantee({ icon, title, badge }: { icon: React.ReactNode; title: string; badge?: string }) {
+  return (
+    <div className="flex items-center gap-2 text-white/85">
+      <span className="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-white/5">{icon}</span>
+      <span className="text-[11px] font-semibold leading-tight" dangerouslySetInnerHTML={{ __html: title }} />
+      {badge && <span className="rounded bg-gold px-1.5 py-0.5 text-[9px] font-bold text-black">{badge}</span>}
     </div>
   );
 }
