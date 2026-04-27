@@ -8,21 +8,14 @@ import {
   Building2,
   Calendar,
   CheckCircle2,
-  ClipboardCheck,
   Clock,
   DollarSign,
-  Eye,
-  Fingerprint,
-  Home,
-  Megaphone,
   MapPin,
   MessageSquare,
   Phone,
-  Search,
   Shield,
   ShieldCheck,
   Star,
-  Users,
   XCircle,
 } from "lucide-react";
 import { StrategyCallForm } from "@/components/forms/StrategyCallForm";
@@ -196,9 +189,18 @@ export default function HomePage() {
             <Image src="/images/process-icons.jpg" alt="Our 3-step process: Market, Show, Place AAA Tenants" width={600} height={200} className="h-auto w-full max-w-xl object-contain" />
           </div>
           <div className="mt-6 grid gap-10 md:grid-cols-3">
-            <Step n={1} icon={<Megaphone className="h-6 w-6" />} title="WE MARKET" desc="We create high-converting ads on Kijiji, Facebook and rental platforms to attract serious tenants." />
-            <Step n={2} icon={<Eye className="h-6 w-6" />} title="WE SHOW" desc="We handle all inquiries, schedule and conduct showings so you don't have to." />
-            <Step n={3} icon={<Home className="h-6 w-6" />} title="WE PLACE AAA TENANTS" desc="We verify credit, employment, and references directly with the source — pay stubs cross-checked with employers, identity fraud detection on every application. Bad actors get caught before they reach your property." />
+            <div className="text-center">
+              <h3 className="text-sm font-extrabold uppercase tracking-wide text-ink"><span className="text-gold">1.</span> WE MARKET</h3>
+              <p className="mx-auto mt-2 max-w-xs text-xs leading-relaxed text-ink/65">We create high-converting ads on Kijiji, Facebook and rental platforms to attract serious tenants.</p>
+            </div>
+            <div className="text-center">
+              <h3 className="text-sm font-extrabold uppercase tracking-wide text-ink"><span className="text-gold">2.</span> WE SHOW</h3>
+              <p className="mx-auto mt-2 max-w-xs text-xs leading-relaxed text-ink/65">We handle all inquiries, schedule and conduct showings so you don&apos;t have to.</p>
+            </div>
+            <div className="text-center">
+              <h3 className="text-sm font-extrabold uppercase tracking-wide text-ink"><span className="text-gold">3.</span> WE PLACE AAA TENANTS</h3>
+              <p className="mx-auto mt-2 max-w-xs text-xs leading-relaxed text-ink/65">We verify credit, employment, and references directly with the source — pay stubs cross-checked with employers, identity fraud detection on every application. Bad actors get caught before they reach your property.</p>
+            </div>
           </div>
           <div className="mt-10 text-center">
             <Link href="/how-it-works" className="inline-flex items-center gap-2 text-sm font-semibold text-gold hover:underline">
@@ -210,16 +212,13 @@ export default function HomePage() {
 
       <section className="section bg-white pt-0">
         <div className="container-x">
-          <h2 className="text-center font-display text-2xl font-extrabold sm:text-3xl">WE RENT ALL PROPERTY TYPES</h2>
-          <div className="mt-8">
-            <Image
-              src="/images/property-types.jpg"
-              alt="We rent all property types: Condos, Basement Apartments, Detached Homes, Semi-Detached Homes, Townhouses, Multi-Unit Properties"
-              width={1400}
-              height={520}
-              className="h-auto w-full rounded-xl object-contain"
-            />
-          </div>
+          <Image
+            src="/images/property-types.jpg"
+            alt="We rent all property types: Condos, Basement Apartments, Detached Homes, Semi-Detached Homes, Townhouses, Multi-Unit Properties"
+            width={1400}
+            height={520}
+            className="h-auto w-full rounded-xl object-contain"
+          />
         </div>
       </section>
 
@@ -291,17 +290,14 @@ export default function HomePage() {
       <section className="bg-ink text-white">
         <div className="container-x grid gap-6 py-10 md:grid-cols-[1.2fr_2fr] md:items-center">
           <div className="flex items-start gap-4">
-            <Image src="/images/icon-shield.jpg" alt="" width={56} height={56} className="h-14 w-14 shrink-0 rounded-lg object-contain" aria-hidden />
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-gold/15 text-gold"><Shield className="h-6 w-6" /></span>
             <div>
               <p className="text-sm font-extrabold uppercase tracking-wide text-gold">Our Tenant Guarantee</p>
               <p className="mt-1 text-sm text-white/80">If your tenant breaks the lease within the first 6 months, we&apos;ll replace them at no extra cost.</p>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4 text-xs sm:grid-cols-4">
-            <Guarantee icon={<Search className="h-4 w-4 text-gold" />} title="Rigorous 7-Point Screening Process" />
-            <Guarantee icon={<ClipboardCheck className="h-4 w-4 text-gold" />} title="Thorough Background &amp; Credit Checks" />
-            <Guarantee icon={<Fingerprint className="h-4 w-4 text-gold" />} title="Fraud Detection &amp; Document Verification" badge="NEW" />
-            <Guarantee icon={<Users className="h-4 w-4 text-gold" />} title="We Find Tenants That Stay" />
+            <Image src="/images/guarantee-icons.jpg" alt="Rigorous 7-Point Screening, Thorough Background & Credit Checks, Fraud Detection & Document Verification, We Find Tenants That Stay" width={700} height={120} className="col-span-2 h-24 w-full object-contain sm:col-span-4" />
           </div>
         </div>
       </section>
@@ -352,7 +348,7 @@ export default function HomePage() {
       <section className="bg-ink text-white">
         <div className="container-x grid gap-6 py-10 lg:grid-cols-[1fr_1.2fr] lg:items-center">
           <div className="flex items-start gap-4">
-            <Image src="/images/icon-calendar.jpg" alt="" width={56} height={56} className="h-14 w-14 shrink-0 rounded-full object-contain" aria-hidden />
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-gold/15 text-gold"><Calendar className="h-6 w-6" /></span>
             <div>
               <p className="text-sm font-extrabold uppercase tracking-wide text-gold">Limited Landlord Slots This Month</p>
               <p className="mt-1 text-sm text-white/80">We only take on a limited number of properties to ensure white-glove service and fast results.</p>
@@ -383,18 +379,6 @@ function Pain({ icon, title, desc }: { icon: React.ReactNode; title: string; des
   );
 }
 
-function Step({ n, icon, title, desc }: { n: number; icon: React.ReactNode; title: string; desc: string }) {
-  return (
-    <div className="text-center">
-      <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-ink text-gold ring-4 ring-gold/10">{icon}</span>
-      <h3 className="mt-4 text-sm font-extrabold uppercase tracking-wide text-ink">
-        <span className="text-gold">{n}.</span> {title}
-      </h3>
-      <p className="mx-auto mt-2 max-w-xs text-xs leading-relaxed text-ink/65">{desc}</p>
-    </div>
-  );
-}
-
 function Stat({ icon, top, label }: { icon: React.ReactNode; top: string; label: string }) {
   return (
     <div className="flex items-center gap-3">
@@ -403,16 +387,6 @@ function Stat({ icon, top, label }: { icon: React.ReactNode; top: string; label:
         <span className="block text-xl font-extrabold text-white">{top}</span>
         <span className="block text-xs text-white/60">{label}</span>
       </span>
-    </div>
-  );
-}
-
-function Guarantee({ icon, title, badge }: { icon: React.ReactNode; title: string; badge?: string }) {
-  return (
-    <div className="flex items-center gap-2 text-white/85">
-      <span className="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-white/5">{icon}</span>
-      <span className="text-[11px] font-semibold leading-tight" dangerouslySetInnerHTML={{ __html: title }} />
-      {badge && <span className="rounded bg-gold px-1.5 py-0.5 text-[9px] font-bold text-black">{badge}</span>}
     </div>
   );
 }
