@@ -28,7 +28,7 @@ import {
 import { StrategyCallForm } from "@/components/forms/StrategyCallForm";
 import { RentEstimateForm } from "@/components/forms/RentEstimateForm";
 import { ReserveSpotForm } from "@/components/forms/ReserveSpotForm";
-import { FAQS, PROPERTY_TYPES, SITE, TESTIMONIALS } from "@/lib/site";
+import { FAQS, SITE, TESTIMONIALS } from "@/lib/site";
 
 export const metadata = {
   title: "Rent Your Property to AAA Tenants — Fast | ZOLA Property Management",
@@ -106,11 +106,17 @@ export default function HomePage() {
               <Shield className="h-4 w-4 text-gold" /> Trusted by 100+ Ontario landlords.
             </p>
 
-            <div className="mt-8 grid grid-cols-2 gap-5 sm:grid-cols-4">
-              <TrustBadge icon={<Star className="h-4 w-4 text-gold" />} top="5.0" sub="Google Rating" />
-              <TrustBadge icon={<ShieldCheck className="h-4 w-4 text-gold" />} top="$1M E&O" sub="Insured" />
-              <TrustBadge icon={<Award className="h-4 w-4 text-gold" />} top="Powered by" sub="SingleKey" />
-              <TrustBadge icon={<Users className="h-4 w-4 text-gold" />} top="100+" sub="Properties Rented" />
+            <div className="mt-8 flex flex-wrap items-center gap-4 divide-x divide-white/20">
+              <Image src="/images/google-rating.jpg" alt="5.0 Google Rating" width={180} height={56} className="h-12 w-auto object-contain" />
+              <Image src="/images/eo-insured.jpg" alt="$1M E&O Insured" width={180} height={56} className="h-12 w-auto object-contain pl-4" />
+              <div className="flex items-center gap-2 pl-4">
+                <Award className="h-5 w-5 text-gold" />
+                <span className="leading-tight">
+                  <span className="block text-xs font-bold text-white">Powered by</span>
+                  <span className="block text-[10px] uppercase tracking-wider text-white/60">SingleKey</span>
+                </span>
+              </div>
+              <Image src="/images/properties-rented.jpg" alt="100+ Properties Rented" width={220} height={56} className="h-12 w-auto object-contain pl-4" />
             </div>
           </div>
 
@@ -186,7 +192,10 @@ export default function HomePage() {
           <h2 className="text-center font-display text-2xl font-extrabold sm:text-3xl">
             HOW WE <span className="text-gold">GET YOUR PROPERTY RENTED</span>
           </h2>
-          <div className="mt-12 grid gap-10 md:grid-cols-3">
+          <div className="mt-8 flex justify-center">
+            <Image src="/images/process-icons.jpg" alt="Our 3-step process: Market, Show, Place AAA Tenants" width={600} height={200} className="h-auto w-full max-w-xl object-contain" />
+          </div>
+          <div className="mt-6 grid gap-10 md:grid-cols-3">
             <Step n={1} icon={<Megaphone className="h-6 w-6" />} title="WE MARKET" desc="We create high-converting ads on Kijiji, Facebook and rental platforms to attract serious tenants." />
             <Step n={2} icon={<Eye className="h-6 w-6" />} title="WE SHOW" desc="We handle all inquiries, schedule and conduct showings so you don't have to." />
             <Step n={3} icon={<Home className="h-6 w-6" />} title="WE PLACE AAA TENANTS" desc="We verify credit, employment, and references directly with the source — pay stubs cross-checked with employers, identity fraud detection on every application. Bad actors get caught before they reach your property." />
@@ -202,17 +211,14 @@ export default function HomePage() {
       <section className="section bg-white pt-0">
         <div className="container-x">
           <h2 className="text-center font-display text-2xl font-extrabold sm:text-3xl">WE RENT ALL PROPERTY TYPES</h2>
-          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-            {PROPERTY_TYPES.map((p) => (
-              <div key={p.slug} className="overflow-hidden rounded-xl border border-black/5 shadow-sm">
-                <div className={`aspect-[4/3] bg-gradient-to-br ${gradientFor(p.slug)} grid place-items-center text-white`}>
-                  <Building2 className="h-10 w-10 opacity-80" />
-                </div>
-                <div className="bg-ink px-3 py-2.5 text-center text-xs font-bold uppercase tracking-wider text-white">
-                  {p.label}
-                </div>
-              </div>
-            ))}
+          <div className="mt-8">
+            <Image
+              src="/images/property-types.jpg"
+              alt="We rent all property types: Condos, Basement Apartments, Detached Homes, Semi-Detached Homes, Townhouses, Multi-Unit Properties"
+              width={1400}
+              height={520}
+              className="h-auto w-full rounded-xl object-contain"
+            />
           </div>
         </div>
       </section>
@@ -224,9 +230,7 @@ export default function HomePage() {
             <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
               {TESTIMONIALS.map((t) => (
                 <figure key={t.name} className="flex flex-col rounded-xl border border-black/5 bg-white p-4 shadow-sm">
-                  <div className="flex text-gold">
-                    {Array.from({ length: t.rating }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
-                  </div>
+                  <Image src="/images/five-stars.jpg" alt="5 stars" width={100} height={24} className="h-5 w-auto object-contain object-left" />
                   <blockquote className="mt-3 grow text-sm text-ink/80">&ldquo;{t.quote}&rdquo;</blockquote>
                   <figcaption className="mt-4 flex items-center gap-3">
                     <span className="grid h-9 w-9 place-items-center rounded-full bg-ink text-xs font-bold text-white">
@@ -265,20 +269,13 @@ export default function HomePage() {
               <li className="flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 text-gold" /> Ontario-wide support through our trusted partner network</li>
             </ul>
 
-            <div className="mt-8 grid max-w-md grid-cols-7 gap-1.5">
-              {Array.from({ length: 49 }).map((_, i) => {
-                const filled = [9,10,11,12,13,16,17,18,19,20,21,23,24,25,26,27,28,30,31,32,33,34,35,38,39,40,41].includes(i);
-                const pin = [18, 25, 33].includes(i);
-                return (
-                  <span
-                    key={i}
-                    className={`relative aspect-square rounded ${filled ? "bg-ink" : "bg-transparent"}`}
-                  >
-                    {pin && <span className="absolute inset-0 m-1 rounded-full bg-gold" aria-hidden />}
-                  </span>
-                );
-              })}
-            </div>
+            <Image
+              src="/images/gta-map.jpg"
+              alt="Map of the Greater Toronto Area showing all areas ZOLA Property Management serves"
+              width={700}
+              height={500}
+              className="h-auto w-full max-w-lg object-contain"
+            />
           </div>
 
           <div className="rounded-2xl border border-black/5 bg-white p-6 shadow-lg lg:p-7">
@@ -294,7 +291,7 @@ export default function HomePage() {
       <section className="bg-ink text-white">
         <div className="container-x grid gap-6 py-10 md:grid-cols-[1.2fr_2fr] md:items-center">
           <div className="flex items-start gap-4">
-            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-gold/15 text-gold"><Shield className="h-6 w-6" /></span>
+            <Image src="/images/icon-shield.jpg" alt="" width={56} height={56} className="h-14 w-14 shrink-0 rounded-lg object-contain" aria-hidden />
             <div>
               <p className="text-sm font-extrabold uppercase tracking-wide text-gold">Our Tenant Guarantee</p>
               <p className="mt-1 text-sm text-white/80">If your tenant breaks the lease within the first 6 months, we&apos;ll replace them at no extra cost.</p>
@@ -338,6 +335,9 @@ export default function HomePage() {
               </div>
             </div>
             <div className="rounded-xl bg-gradient-to-br from-gold/15 to-gold/5 p-5">
+              <div className="mb-4 overflow-hidden rounded-lg">
+                <Image src="/images/couple-keys.jpg" alt="Happy landlords holding house keys" width={400} height={220} className="h-40 w-full object-cover" />
+              </div>
               <p className="text-sm font-semibold text-ink">We respond to all inquiries within 1 hour.</p>
               <p className="mt-1 text-xs text-ink/70">Speak with a leasing expert today!</p>
               <div className="mt-4 flex flex-col gap-2 sm:flex-row">
@@ -352,7 +352,7 @@ export default function HomePage() {
       <section className="bg-ink text-white">
         <div className="container-x grid gap-6 py-10 lg:grid-cols-[1fr_1.2fr] lg:items-center">
           <div className="flex items-start gap-4">
-            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-gold/15 text-gold"><Calendar className="h-6 w-6" /></span>
+            <Image src="/images/icon-calendar.jpg" alt="" width={56} height={56} className="h-14 w-14 shrink-0 rounded-full object-contain" aria-hidden />
             <div>
               <p className="text-sm font-extrabold uppercase tracking-wide text-gold">Limited Landlord Slots This Month</p>
               <p className="mt-1 text-sm text-white/80">We only take on a limited number of properties to ensure white-glove service and fast results.</p>
@@ -368,18 +368,6 @@ export default function HomePage() {
       <Script id="ld-faq" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <Script id="ld-service" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
     </>
-  );
-}
-
-function TrustBadge({ icon, top, sub }: { icon: React.ReactNode; top: string; sub: string }) {
-  return (
-    <div className="flex items-center gap-2.5">
-      <span className="grid h-9 w-9 place-items-center rounded-full bg-white/5">{icon}</span>
-      <span className="leading-tight">
-        <span className="block text-sm font-bold text-white">{top}</span>
-        <span className="block text-[10px] uppercase tracking-wider text-white/60">{sub}</span>
-      </span>
-    </div>
   );
 }
 
@@ -429,14 +417,3 @@ function Guarantee({ icon, title, badge }: { icon: React.ReactNode; title: strin
   );
 }
 
-function gradientFor(slug: string) {
-  switch (slug) {
-    case "condos": return "from-slate-700 to-slate-900";
-    case "basement-apartments": return "from-amber-700 to-amber-900";
-    case "detached-homes": return "from-emerald-700 to-emerald-900";
-    case "semi-detached-homes": return "from-rose-700 to-rose-900";
-    case "townhouses": return "from-indigo-700 to-indigo-900";
-    case "multi-unit": return "from-zinc-700 to-zinc-900";
-    default: return "from-gray-700 to-gray-900";
-  }
-}
