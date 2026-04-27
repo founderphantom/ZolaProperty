@@ -2,25 +2,72 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0a0a0a;
+  --ink: #0a0a0a;
+  --ink-2: #111111;
+  --ink-3: #1a1a1a;
+  --gold: #f59e0b;
+  --gold-2: #fbbf24;
+  --gold-soft: #fde68a;
+  --muted: #6b7280;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-gold: var(--gold);
+  --color-gold-2: var(--gold-2);
+  --color-gold-soft: var(--gold-soft);
+  --color-muted: var(--muted);
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+  background: var(--background);
+  color: var(--foreground);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.font-display {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.bg-radial-hero {
+  background:
+    radial-gradient(ellipse 60% 50% at 70% 30%, rgba(245, 158, 11, 0.15), transparent 60%),
+    linear-gradient(180deg, #0a0a0a 0%, #0a0a0a 100%);
+}
+
+.btn-gold {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-5 py-3 font-semibold text-black shadow-[0_8px_24px_-8px_rgba(245,158,11,0.6)] transition hover:bg-gold-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-soft;
+}
+
+.btn-outline-gold {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg border border-gold/60 px-5 py-3 font-semibold text-gold transition hover:bg-gold/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-soft;
+}
+
+.btn-ghost-light {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg border border-white/15 px-5 py-3 font-semibold text-white transition hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30;
+}
+
+.container-x {
+  @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
+}
+
+.section {
+  @apply py-16 sm:py-20 lg:py-24;
+}
+
+.eyebrow {
+  @apply text-xs font-bold uppercase tracking-[0.18em] text-gold;
 }
