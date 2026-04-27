@@ -117,7 +117,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <aside className="relative">
+          <aside className="relative hidden lg:block">
             <div className="rounded-2xl border border-gold/40 bg-ink-2/80 p-6 shadow-2xl backdrop-blur lg:p-7">
               <p className="text-center text-xs font-bold uppercase tracking-[0.18em] text-gold">Get a Free</p>
               <h2 className="text-center font-display text-2xl font-extrabold text-white">Rental Strategy Call</h2>
@@ -215,7 +215,8 @@ export default function HomePage() {
       </section>
 
       <section className="bg-white py-0">
-        <div className="container-x overflow-hidden">
+        {/* Desktop: show cropped property-types image */}
+        <div className="hidden lg:block container-x overflow-hidden">
           <Image
             src="/images/property-types.jpg"
             alt="We rent all property types: Condos, Basement Apartments, Detached Homes, Semi-Detached Homes, Townhouses, Multi-Unit Properties"
@@ -226,9 +227,24 @@ export default function HomePage() {
             sizes="(min-width: 1280px) 1280px, 100vw"
           />
         </div>
+        {/* Mobile/tablet: text grid (image is unreadable at small sizes) */}
+        <div className="lg:hidden py-12 sm:py-16">
+          <div className="container-x">
+            <h2 className="text-center font-display text-2xl font-extrabold sm:text-3xl">
+              WE RENT ALL <span className="text-gold">PROPERTY TYPES</span>
+            </h2>
+            <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
+              {["Condos", "Basement Apartments", "Detached Homes", "Semi-Detached Homes", "Townhouses", "Multi-Unit Properties"].map((type) => (
+                <div key={type} className="flex items-center justify-center rounded-xl border border-black/5 bg-white p-4 shadow-sm text-center">
+                  <span className="text-sm font-semibold text-ink">{type}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section className="section bg-white pt-0">
+      <section className="bg-white py-16 sm:py-20 lg:py-24">
         <div className="container-x">
           <h2 className="font-display text-2xl font-extrabold sm:text-3xl">WHAT LANDLORDS SAY</h2>
           <div className="mt-8 grid gap-5 lg:grid-cols-[2fr_1fr]">
@@ -260,7 +276,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section bg-white pt-0">
+      <section className="bg-white pb-16 sm:pb-20 lg:pb-24">
         <div className="container-x grid gap-10 lg:grid-cols-2 lg:items-center">
           <div>
             <h2 className="font-display text-3xl font-extrabold leading-tight sm:text-4xl">
@@ -311,7 +327,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section bg-white">
+      <section className="bg-white py-16 sm:py-20 lg:py-24">
         <div className="container-x grid gap-10 lg:grid-cols-[2fr_1fr]">
           <div>
             <h2 className="font-display text-2xl font-extrabold uppercase tracking-wide">Frequently Asked Questions</h2>
