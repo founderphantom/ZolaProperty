@@ -164,7 +164,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section bg-white">
+      <section className="bg-white pt-16 sm:pt-20 lg:pt-24 pb-4">
         <div className="container-x">
           <h2 className="text-center font-display text-2xl font-extrabold sm:text-3xl">TIRED OF DEALING WITH...</h2>
           <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
@@ -222,7 +222,7 @@ export default function HomePage() {
             width={1536}
             height={1024}
             className="w-full h-auto"
-            style={{ marginTop: '-5%', marginBottom: '-20%' }}
+            style={{ marginTop: '-17%', marginBottom: '-20%' }}
             sizes="(min-width: 1280px) 1280px, 100vw"
           />
         </div>
