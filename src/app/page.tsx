@@ -62,7 +62,7 @@ export default function HomePage() {
           fill
           priority
           sizes="100vw"
-          className="absolute inset-0 -z-10 object-cover opacity-50"
+          className="absolute inset-0 -z-10 object-cover opacity-65"
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink via-ink/85 to-ink/30" aria-hidden />
         <div className="container-x grid gap-10 py-12 lg:grid-cols-[1.2fr_0.9fr] lg:gap-12 lg:py-20">
@@ -190,7 +190,9 @@ export default function HomePage() {
             HOW WE <span className="text-gold">GET YOUR PROPERTY RENTED</span>
           </h2>
           <div className="mt-8 flex justify-center">
-            <Image src="/images/process-icons.jpg" alt="Our 3-step process: Market, Show, Place AAA Tenants" width={600} height={200} className="h-auto w-full max-w-xl object-contain" />
+            <div className="relative mx-auto h-64 w-full max-w-xl overflow-hidden sm:h-72">
+              <Image fill src="/images/process-icons.jpg" alt="Our 3-step process: Market, Show, Place AAA Tenants" className="object-cover object-top" sizes="(min-width: 640px) 576px, 100vw" />
+            </div>
           </div>
           <div className="mt-6 grid gap-10 md:grid-cols-3">
             <div className="text-center">
@@ -214,17 +216,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section bg-white pt-0">
+      <section className="bg-white py-0">
         <div className="container-x">
-          <div className="relative h-72 w-full overflow-hidden rounded-xl sm:h-80 lg:h-96">
-            <Image
-              fill
-              src="/images/property-types.jpg"
-              alt="We rent all property types: Condos, Basement Apartments, Detached Homes, Semi-Detached Homes, Townhouses, Multi-Unit Properties"
-              className="object-cover object-bottom"
-              sizes="(min-width: 1280px) 1280px, 100vw"
-            />
-          </div>
+          <Image
+            src="/images/property-types.jpg"
+            alt="We rent all property types: Condos, Basement Apartments, Detached Homes, Semi-Detached Homes, Townhouses, Multi-Unit Properties"
+            width={1536}
+            height={1024}
+            className="w-full h-auto"
+            sizes="(min-width: 1280px) 1280px, 100vw"
+          />
         </div>
       </section>
 
