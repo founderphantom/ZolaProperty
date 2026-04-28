@@ -106,11 +106,11 @@ export default function HomePage() {
             <div className="mt-8 flex flex-wrap items-center gap-4 divide-x divide-white/20">
               <Image src="/images/google-rating.jpg" alt="5.0 Google Rating" width={180} height={56} className="h-12 w-auto object-contain" />
               <Image src="/images/eo-insured.jpg" alt="$1M E&O Insured" width={180} height={56} className="h-12 w-auto object-contain pl-4" />
-              <div className="flex items-center gap-2 pl-4">
-                <Award className="h-5 w-5 text-gold" />
+              <div className="flex h-12 items-center gap-2 rounded-lg bg-white/10 px-3 pl-4">
+                <Award className="h-6 w-6 shrink-0 text-gold" />
                 <span className="leading-tight">
                   <span className="block text-xs font-bold text-white">Powered by</span>
-                  <span className="block text-[10px] uppercase tracking-wider text-white/60">SingleKey</span>
+                  <span className="block text-[11px] font-bold uppercase tracking-wide text-gold">SingleKey</span>
                 </span>
               </div>
               <Image src="/images/properties-rented.jpg" alt="100+ Properties Rented" width={220} height={56} className="h-12 w-auto object-contain pl-4" />
@@ -192,7 +192,7 @@ export default function HomePage() {
           <div className="mt-8 mx-auto max-w-xl overflow-hidden">
             <Image src="/images/process-icons.jpg" alt="Our 3-step process: Market, Show, Place AAA Tenants" width={1536} height={1024} className="w-full h-auto" style={{ marginTop: '-5%', marginBottom: '-12%' }} sizes="(min-width: 640px) 576px, 100vw" />
           </div>
-          <div className="mt-6 grid gap-10 md:grid-cols-3">
+          <div className="mt-6 mx-auto max-w-xl grid gap-10 md:grid-cols-3">
             <div className="text-center">
               <h3 className="text-sm font-extrabold uppercase tracking-wide text-ink"><span className="text-gold">1.</span> WE MARKET</h3>
               <p className="mx-auto mt-2 max-w-xs text-xs leading-relaxed text-ink/65">We create high-converting ads on Kijiji, Facebook and rental platforms to attract serious tenants.</p>
@@ -223,7 +223,7 @@ export default function HomePage() {
             width={1536}
             height={1024}
             className="w-full h-auto"
-            style={{ marginTop: '-17%', marginBottom: '-20%' }}
+            style={{ marginTop: '-13%', marginBottom: '-20%' }}
             sizes="(min-width: 1280px) 1280px, 100vw"
           />
         </div>
