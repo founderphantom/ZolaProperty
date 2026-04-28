@@ -12,7 +12,9 @@ import {
   Clock,
   DollarSign,
   Fingerprint,
+  Home,
   MapPin,
+  Megaphone,
   MessageSquare,
   Phone,
   Search,
@@ -106,7 +108,7 @@ export default function HomePage() {
             <div className="mt-8 flex flex-wrap items-center gap-4 divide-x divide-white/20">
               <Image src="/images/google-rating.jpg" alt="5.0 Google Rating" width={180} height={56} className="h-12 w-auto object-contain" />
               <Image src="/images/eo-insured.jpg" alt="$1M E&O Insured" width={180} height={56} className="h-12 w-auto object-contain pl-4" />
-              <div className="flex h-12 items-center gap-2 rounded-lg bg-white/10 px-3 pl-4">
+              <div className="flex h-12 items-center gap-2 rounded-lg bg-zinc-900 px-3 pl-4">
                 <Award className="h-6 w-6 shrink-0 text-gold" />
                 <span className="leading-tight">
                   <span className="block text-xs font-bold text-white">Powered by</span>
@@ -189,23 +191,87 @@ export default function HomePage() {
           <h2 className="text-center font-display text-2xl font-extrabold sm:text-3xl">
             HOW WE <span className="text-gold">GET YOUR PROPERTY RENTED</span>
           </h2>
-          <div className="mt-8 mx-auto max-w-xl overflow-hidden">
-            <Image src="/images/process-icons.jpg" alt="Our 3-step process: Market, Show, Place AAA Tenants" width={1536} height={1024} className="w-full h-auto" style={{ marginTop: '-5%', marginBottom: '-12%' }} sizes="(min-width: 640px) 576px, 100vw" />
+
+          {/* Desktop: 3 columns with arrows overlaid at circle height */}
+          <div className="relative mt-10 mx-auto max-w-xl hidden md:grid grid-cols-3">
+            {/* Arrow between step 1 and step 2 */}
+            <div className="absolute top-14 left-1/3 z-10 flex w-20 -translate-x-1/2 -translate-y-1/2 items-center pointer-events-none">
+              <div className="flex-1 border-t-[3px] border-dashed border-gold/70" />
+              <ArrowRight className="h-5 w-5 shrink-0 text-gold -ml-1" />
+            </div>
+            {/* Arrow between step 2 and step 3 */}
+            <div className="absolute top-14 left-2/3 z-10 flex w-20 -translate-x-1/2 -translate-y-1/2 items-center pointer-events-none">
+              <div className="flex-1 border-t-[3px] border-dashed border-gold/70" />
+              <ArrowRight className="h-5 w-5 shrink-0 text-gold -ml-1" />
+            </div>
+
+            {/* Step 1 */}
+            <div className="flex flex-col items-center gap-4 px-2">
+              <div className="flex h-28 w-28 items-center justify-center rounded-full bg-black shadow-lg">
+                <Megaphone className="h-12 w-12 text-gold" />
+              </div>
+              <div className="text-center">
+                <h3 className="text-sm font-extrabold uppercase tracking-wide text-ink"><span className="text-gold">1.</span> WE MARKET</h3>
+                <p className="mt-2 text-xs leading-relaxed text-ink/65">We create high-converting ads on Kijiji, Facebook and rental platforms to attract serious tenants.</p>
+              </div>
+            </div>
+
+            {/* Step 2 */}
+            <div className="flex flex-col items-center gap-4 px-2">
+              <div className="flex h-28 w-28 items-center justify-center rounded-full bg-black shadow-lg">
+                <Users className="h-12 w-12 text-gold" />
+              </div>
+              <div className="text-center">
+                <h3 className="text-sm font-extrabold uppercase tracking-wide text-ink"><span className="text-gold">2.</span> WE SHOW</h3>
+                <p className="mt-2 text-xs leading-relaxed text-ink/65">We handle all inquiries, schedule and conduct showings so you don&apos;t have to.</p>
+              </div>
+            </div>
+
+            {/* Step 3 */}
+            <div className="flex flex-col items-center gap-4 px-2">
+              <div className="flex h-28 w-28 items-center justify-center rounded-full bg-black shadow-lg">
+                <Home className="h-12 w-12 text-gold" />
+              </div>
+              <div className="text-center">
+                <h3 className="text-sm font-extrabold uppercase tracking-wide text-ink"><span className="text-gold">3.</span> WE PLACE AAA TENANTS</h3>
+                <p className="mt-2 text-xs leading-relaxed text-ink/65">We verify credit, employment, and references directly with the source — pay stubs cross-checked with employers, identity fraud detection on every application.</p>
+              </div>
+            </div>
           </div>
-          <div className="mt-6 mx-auto max-w-xl grid gap-10 md:grid-cols-3">
-            <div className="text-center">
-              <h3 className="text-sm font-extrabold uppercase tracking-wide text-ink"><span className="text-gold">1.</span> WE MARKET</h3>
-              <p className="mx-auto mt-2 max-w-xs text-xs leading-relaxed text-ink/65">We create high-converting ads on Kijiji, Facebook and rental platforms to attract serious tenants.</p>
+
+          {/* Mobile: vertical steps */}
+          <div className="md:hidden mt-10 mx-auto max-w-sm flex flex-col items-center gap-3">
+            <div className="flex items-center gap-4 w-full">
+              <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-black">
+                <Megaphone className="h-9 w-9 text-gold" />
+              </div>
+              <div>
+                <h3 className="text-sm font-extrabold uppercase tracking-wide text-ink"><span className="text-gold">1.</span> WE MARKET</h3>
+                <p className="mt-1 text-xs leading-relaxed text-ink/65">We create high-converting ads on Kijiji, Facebook and rental platforms to attract serious tenants.</p>
+              </div>
             </div>
-            <div className="text-center">
-              <h3 className="text-sm font-extrabold uppercase tracking-wide text-ink"><span className="text-gold">2.</span> WE SHOW</h3>
-              <p className="mx-auto mt-2 max-w-xs text-xs leading-relaxed text-ink/65">We handle all inquiries, schedule and conduct showings so you don&apos;t have to.</p>
+            <ArrowDown className="h-6 w-6 text-gold" />
+            <div className="flex items-center gap-4 w-full">
+              <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-black">
+                <Users className="h-9 w-9 text-gold" />
+              </div>
+              <div>
+                <h3 className="text-sm font-extrabold uppercase tracking-wide text-ink"><span className="text-gold">2.</span> WE SHOW</h3>
+                <p className="mt-1 text-xs leading-relaxed text-ink/65">We handle all inquiries, schedule and conduct showings so you don&apos;t have to.</p>
+              </div>
             </div>
-            <div className="text-center">
-              <h3 className="text-sm font-extrabold uppercase tracking-wide text-ink"><span className="text-gold">3.</span> WE PLACE AAA TENANTS</h3>
-              <p className="mx-auto mt-2 max-w-xs text-xs leading-relaxed text-ink/65">We verify credit, employment, and references directly with the source — pay stubs cross-checked with employers, identity fraud detection on every application. Bad actors get caught before they reach your property.</p>
+            <ArrowDown className="h-6 w-6 text-gold" />
+            <div className="flex items-center gap-4 w-full">
+              <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-black">
+                <Home className="h-9 w-9 text-gold" />
+              </div>
+              <div>
+                <h3 className="text-sm font-extrabold uppercase tracking-wide text-ink"><span className="text-gold">3.</span> WE PLACE AAA TENANTS</h3>
+                <p className="mt-1 text-xs leading-relaxed text-ink/65">We verify credit, employment, and references directly with the source.</p>
+              </div>
             </div>
           </div>
+
           <div className="mt-10 text-center">
             <Link href="/how-it-works" className="inline-flex items-center gap-2 text-sm font-semibold text-gold hover:underline">
               See our 5-step detailed process <ArrowRight className="h-4 w-4" />
